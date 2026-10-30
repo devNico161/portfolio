@@ -255,7 +255,6 @@ SOBRE_MI = {
         {"imagen": "sobre-mi/web/abajo-1.jpg", "texto": "El salchicha de la casa"},
         {"imagen": "sobre-mi/web/abajo-2.jpg", "texto": "Noches de plaza"},
         {"imagen": "sobre-mi/web/abajo-3.jpg", "texto": "Fútbol amateur"},
-        {"imagen": "sobre-mi/web/abajo-4.jpg", "texto": "La familia"},
     ],
     "tarjetas": [
         {
