@@ -14,7 +14,7 @@ PERFIL = {
     "telefono": "+54 9 381 402-7105",
     "whatsapp": "https://wa.me/5493814027105",
     "mail": "pereyranicolas1997@gmail.com",
-    "cv": "cv/CV_Nicolas_Pereyra.pdf",
+    "cv": "cv/CV_Pereyra_Nicolas.pdf",
     "ubicacion": "San Miguel de Tucumán, Argentina",
     "anio": "2026",
 }
@@ -248,10 +248,10 @@ SOBRE_MI = {
     },
     "fotos": [
         {"imagen": "sobre-mi/web/costado-1.jpg", "texto": "Paseo con el salchicha"},
-        {"imagen": "sobre-mi/web/costado-2.jpg", "texto": "Bici por el cerro"},
         {"imagen": "sobre-mi/web/costado-3.jpg", "texto": "Siesta bajo el árbol"},
         {"imagen": "sobre-mi/web/abajo-1.jpg", "texto": "El salchicha de la casa"},
         {"imagen": "sobre-mi/web/abajo-2.jpg", "texto": "Noches de plaza"},
+        {"imagen": "sobre-mi/web/costado-2.jpg", "texto": "Bici por el cerro"},
         {"imagen": "sobre-mi/web/abajo-3.jpg", "texto": "Fútbol amateur"},
     ],
     "tarjetas": [

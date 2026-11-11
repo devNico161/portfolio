@@ -44,6 +44,7 @@
             {% endfor %}
             <div class="botones">
                 <a class="boton boton--principal" href="{{ perfil.whatsapp }}" target="_blank" rel="noopener">Hablemos</a>
+                <a class="boton" href="{{ url_for('static', filename=perfil.cv) }}" target="_blank" rel="noopener">Ver CV</a>
                 <a class="boton" href="{{ url_for('static', filename=perfil.cv) }}" download>Descargar CV</a>
             </div>
         </div>
@@ -191,6 +192,7 @@
             <div class="botones">
                 <a class="boton boton--principal" href="{{ perfil.whatsapp }}" target="_blank" rel="noopener">WhatsApp</a>
                 <a class="boton" href="mailto:{{ perfil.mail }}">Mail</a>
+                <a class="boton" href="{{ url_for('static', filename=perfil.cv) }}" target="_blank" rel="noopener">Ver CV</a>
                 <a class="boton" href="{{ url_for('static', filename=perfil.cv) }}" download>Descargar CV</a>
             </div>
             <p class="contacto__datos">{{ perfil.telefono }} · {{ perfil.mail }}</p>
