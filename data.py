@@ -246,12 +246,10 @@ SOBRE_MI = {
         "imagen": "sobre-mi/web/principal.jpg",
         "pie": "Una ilustración de las cosas que me acompañan fuera de la pantalla.",
     },
-    "costado": [
+    "fotos": [
         {"imagen": "sobre-mi/web/costado-1.jpg", "texto": "Paseo con el salchicha"},
         {"imagen": "sobre-mi/web/costado-2.jpg", "texto": "Bici por el cerro"},
         {"imagen": "sobre-mi/web/costado-3.jpg", "texto": "Siesta bajo el árbol"},
-    ],
-    "abajo": [
         {"imagen": "sobre-mi/web/abajo-1.jpg", "texto": "El salchicha de la casa"},
         {"imagen": "sobre-mi/web/abajo-2.jpg", "texto": "Noches de plaza"},
         {"imagen": "sobre-mi/web/abajo-3.jpg", "texto": "Fútbol amateur"},

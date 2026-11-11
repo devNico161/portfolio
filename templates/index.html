@@ -153,27 +153,23 @@
             <p class="seccion__subtitulo">{{ s.subtitulo }}</p>
         </div>
         <div class="galeria">
-            <div class="galeria__arriba">
-                <figure class="galeria__principal revelar">
-                    {{ foto(sobre_mi.principal.imagen, sobre_mi.principal.pie, "ratio-16-10") }}
-                    <figcaption>{{ sobre_mi.principal.pie }}</figcaption>
-                </figure>
-                <div class="galeria__costado">
-                    {% for g in sobre_mi.costado %}
-                        <figure class="revelar">
-                            {{ foto(g.imagen, g.texto, "") }}
-                            <figcaption>{{ g.texto }}</figcaption>
-                        </figure>
+            <figure class="galeria__principal revelar">
+                {{ foto(sobre_mi.principal.imagen, sobre_mi.principal.pie, "ratio-16-10") }}
+                <figcaption>{{ sobre_mi.principal.pie }}</figcaption>
+            </figure>
+            <div class="carrusel revelar" aria-roledescription="carrusel" aria-label="Fotos">
+                <button class="carrusel__flecha carrusel__flecha--ant" type="button" aria-label="Foto anterior">‹</button>
+                <ul class="carrusel__pista">
+                    {% for g in sobre_mi.fotos %}
+                        <li class="carrusel__item">
+                            <figure>
+                                {{ foto(g.imagen, g.texto, "ratio-1-1") }}
+                                <figcaption>{{ g.texto }}</figcaption>
+                            </figure>
+                        </li>
                     {% endfor %}
-                </div>
-            </div>
-            <div class="galeria__abajo">
-                {% for g in sobre_mi.abajo %}
-                    <figure class="revelar">
-                        {{ foto(g.imagen, g.texto or sobre_mi.principal.pie, "ratio-1-1") }}
-                        {% if g.texto %}<figcaption>{{ g.texto }}</figcaption>{% endif %}
-                    </figure>
-                {% endfor %}
+                </ul>
+                <button class="carrusel__flecha carrusel__flecha--sig" type="button" aria-label="Foto siguiente">›</button>
             </div>
         </div>
         <div class="tarjetas">
