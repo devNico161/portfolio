@@ -42,6 +42,65 @@ document.querySelectorAll(".desplegar").forEach((boton) => {
     });
 });
 
+document.querySelectorAll(".carrusel").forEach((carrusel) => {
+    const pista = carrusel.querySelector(".carrusel__pista");
+    const items = pista.querySelectorAll(".carrusel__item");
+    if (items.length < 2) return;
+
+    const paso = () => {
+        const gap = parseFloat(getComputedStyle(pista).columnGap) || 0;
+        return items[0].getBoundingClientRect().width + gap;
+    };
+    const maximo = () => pista.scrollWidth - pista.clientWidth - 2;
+
+    const mover = (direccion) => {
+        if (direccion > 0 && pista.scrollLeft >= maximo()) {
+            pista.scrollTo({ left: 0 });
+        } else if (direccion < 0 && pista.scrollLeft <= 2) {
+            pista.scrollTo({ left: pista.scrollWidth });
+        } else {
+            pista.scrollBy({ left: direccion * paso() });
+        }
+    };
+
+    carrusel.querySelector(".carrusel__flecha--ant").addEventListener("click", () => mover(-1));
+    carrusel.querySelector(".carrusel__flecha--sig").addEventListener("click", () => mover(1));
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let temporizador = null;
+    let enPantalla = false;
+    let pausado = false;
+
+    const actualizar = () => {
+        clearInterval(temporizador);
+        temporizador = null;
+        if (enPantalla && !pausado && !document.hidden) {
+            temporizador = setInterval(() => mover(1), 4000);
+        }
+    };
+    const pausar = () => { pausado = true; actualizar(); };
+    const reanudar = () => { pausado = false; actualizar(); };
+
+    carrusel.addEventListener("mouseenter", pausar);
+    carrusel.addEventListener("mouseleave", reanudar);
+    carrusel.addEventListener("focusin", pausar);
+    carrusel.addEventListener("focusout", reanudar);
+    pista.addEventListener("touchstart", pausar, { passive: true });
+    pista.addEventListener("touchend", () => setTimeout(reanudar, 3000), { passive: true });
+    document.addEventListener("visibilitychange", actualizar);
+
+    if ("IntersectionObserver" in window) {
+        new IntersectionObserver(([entrada]) => {
+            enPantalla = entrada.isIntersecting;
+            actualizar();
+        }, { threshold: 0.3 }).observe(carrusel);
+    } else {
+        enPantalla = true;
+        actualizar();
+    }
+});
+
 const elementos = document.querySelectorAll(".revelar");
 
 if ("IntersectionObserver" in window) {
